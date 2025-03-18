@@ -1,4 +1,4 @@
-***Fast_n*** is a fast and easy to use python library to generate noise. **It currently only supports perlin noise.**
+***Fast_n*** is a fast and easy to use python library to generate noise. **(It currently only supports perlin noise.)**
 
 ## Installation
 
@@ -33,3 +33,7 @@ for y in range(128):
         img.putpixel((x, y), pixelBrightness)
 img.show() # open the image in an image viewer
 ```
+
+## Credits
+
+- [Raouf](https://rtouti.github.io/): My perlin noise implementation is based on [this blog post](https://rtouti.github.io/graphics/perlin-noise-algorithm) he made.
