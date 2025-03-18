@@ -52,7 +52,7 @@ class PerlinNoise:
     # ────────────────── UTILITIES ──────────────────
     
     def Sample(self, x: float, y: float) -> float:
-        """Returns the perlin noise value at a given position."""
+        """Returns the perlin noise value (ranging from -1 to 1) at a given position."""
         
         xF = math.floor(x)
         yF = math.floor(y)
