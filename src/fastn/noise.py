@@ -16,8 +16,8 @@ class PerlinNoise:
     def __init__(self, seed: int, wrapSize: int = 256) -> None:
         """
         PARAMS:
-            - seed: int -> seed of the perlin noise. Two perlin noise with the same seed are identical.
-            - !*wrapSize: int -> the noise will wrap after each multiple of this number. !(must be a power of 2) *(defaults to 256)
+            - seed: int -> seed of the perlin noise. Two perlin noise objects with the same seed are identical.
+            - *!wrapSize: int -> the noise will wrap after each multiple of this number. *(defaults to 256) !(must be a power of 2)
         """
         
         self._wrapSize: int = wrapSize
