@@ -3,12 +3,12 @@ requires = ["setuptools >= 40.9.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "fast_pn"
+name = "fast_n"
 version = "0.0.1"
 authors = [
   { name="greenKac" },
 ]
-description = "A fast perlin noise library for game dev."
+description = "A fast noise library for game dev."
 readme = "README.md"
 requires-python = ">=3.11"
 classifiers = [
