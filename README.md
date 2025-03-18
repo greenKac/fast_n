@@ -14,7 +14,7 @@ At the moment, only perlin noise is implemented but I'm sure I'll add more at so
 
 ## How to use
 
-Create a noise object, passing in a seed and some noise-dependant parameters, then call its Sample() method with a x and y positions to access the value at the given location.
+Create a noise object, passing in a seed and some noise-dependant parameters, then call its Sample() method with x and y 2D coordinates to access the value at the given position.
 
 This exemple shows how to draw perlin noise using ***PIL*** to handle the image stuff:
 
@@ -22,16 +22,16 @@ This exemple shows how to draw perlin noise using ***PIL*** to handle the image 
 from fastn import noise
 from PIL import Image
 
-perlin = noise.PerlinNoise(23) # create a PerlinNoise object with a seed of 23
+perlin = noise.PerlinNoise(23) # creates a PerlinNoise object with a seed of 23
 img = Image.new("L", (128, 128)) # creates an image using only a grayscale channel
 for y in range(128):
     for x in range(128):
-        # with perlin noise you want to avoid using only integer coordinates 
+        # with perlin noise you want to avoid only using integer coordinates 
         # because they always return the same value
         noiseValue = perlin.Sample(x / 32, y / 32)
-        pixelBrightness = round((noiseValue * 0.5 + 0.5) * 255) # transform the output from a [-1, 1] range to a [0, 255] range
+        pixelBrightness = round((noiseValue * 0.5 + 0.5) * 255) # transforms the output from a [-1, 1] range to a [0, 255] range
         img.putpixel((x, y), pixelBrightness)
-img.show() # open the image in an image viewer
+img.show() # opens the image in an image viewer
 ```
 
 ## Credits
