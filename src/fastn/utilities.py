@@ -6,7 +6,7 @@ def Shuffle(rand: random.Random, table: list[int]) -> None:
     """Shuffles a table using a Random object."""
     
     for j in range(len(table) - 1, 0, -1):
-        i = rand.randint(0, j-1)
+        i = rand.randint(0, j - 1)
         table[j], table[i] = table[i], table[j]
 
 # ────────────────── MATH ──────────────────

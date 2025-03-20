@@ -11,3 +11,4 @@ for seed in seeds:
     np2 = noise.PerlinNoise(seed)
     for samplePos in samplePositions:
         assert np1.Sample(*samplePos) == np2.Sample(*samplePos)
+        assert np1.Sample(*samplePos) == np1.Sample(*samplePos)

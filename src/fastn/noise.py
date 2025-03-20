@@ -44,15 +44,44 @@ class PerlinNoise:
         """Generates the constant gradient vectors at the corners of each cell."""
         
         self._gradients: list[tuple[float, float]] = []
-        for i in range(self._wrapSize):
+        for _ in range(self._wrapSize):
             g = (self._rand.random() * 2 - 1, self._rand.random() * 2 - 1)
             l = math.sqrt(g[0] * g[0] + g[1] * g[1])
             self._gradients.append((g[0] / l, g[1] / l))
     
     # ────────────────── UTILITIES ──────────────────
     
+    def SampleOctaves(self, x: float, y: float, octaves: int, frequencyMultiplier: float = 2,
+                      amplitudeMultiplier: float = 0.5, startingAmplitude: float = 1) -> float:
+        """
+        Returns the perlin noise value at a given position and with a specified number of octaves.
+        
+        PARAMS:
+            - x: float -> x position of the sample point.
+            - y: float -> y position of the sample point.
+            - octaves: int -> number of octaves.
+            - frequencyMultiplier: float -> number by which the frequency is multiplied after each octave gets applied.
+            - amplitudeMultiplier: float -> number by which the amplitude is multiplied after each octave gets applied.
+            - startingAmplitude: float -> amplitude of the first octave.
+        """
+        
+        noiseVal = 0
+        amplitude = startingAmplitude
+        for _ in range(octaves):
+            noiseVal += self.Sample(x, y) * amplitude
+            x *= frequencyMultiplier
+            y *= frequencyMultiplier
+            amplitude *= amplitudeMultiplier
+        return noiseVal
+    
     def Sample(self, x: float, y: float) -> float:
-        """Returns the perlin noise value (ranging from -1 to 1) at a given position."""
+        """
+        Returns the perlin noise value at a given position.
+        
+        PARAMS:
+            - x: float -> x position of the sample point.
+            - y: float -> y position of the sample point.
+        """
         
         xF = math.floor(x)
         yF = math.floor(y)
